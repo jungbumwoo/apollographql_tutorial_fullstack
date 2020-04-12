@@ -28,6 +28,7 @@ const typeDefs = gql`
     ): LaunchConnection!
     launch(id: ID!): Launch
     me: User
+
   }
 
   type LaunchConnection {

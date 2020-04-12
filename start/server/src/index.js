@@ -8,7 +8,10 @@ const UserAPI = require('./datasources/user');
 
 const store = createStore();
 
-const server = new ApolloServer({ 
+const server = new ApolloServer({
+    context: async ({ req }) => {
+        const auth = req.headers && req.headers.authorization || '';
+    },
     typeDefs,
     resolvers,
     dataSources: () => ({
